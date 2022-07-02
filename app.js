@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const studentRouter = require('./routes/studentRoutes');
 const courseRouter = require('./routes/courseRoutes');
 const emailRouter = require('./routes/emailRoutes');
+const userRouter = require('./routes/userRoutes');
 const AppError = require('./utils/AppError');
 const globalErreorHandler = require('./controllers/errorController');
 
@@ -21,6 +22,7 @@ app.use(express.json({limit:'10kb'}));
 app.use('/api/v1/students', studentRouter);
 app.use('/api/v1/courses', courseRouter);
 app.use('/api/v1/send-email', emailRouter);
+app.use('/api/v1/users', userRouter);
 
 app.all('*',function(req,res,next){
     next(new AppError(`Can 't find ${req.originalUrl} on this server `),404);
