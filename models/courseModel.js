@@ -10,7 +10,8 @@ const courseSchema = new mongoose.Schema({
     instructor: {
         type: String,
         required: [true, "Please provide an instructor"],
-    }
+    }, 
+    file: String
 },{
     toJSON:{virtuals:true},
     toObject:{virtuals:true}
